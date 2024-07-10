@@ -2,11 +2,12 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+
 
 def plot_kuznets_curve(df, country):
-    df["original_period"] = pd.to_datetime(df["original_period"], errors='coerce')
+    df["original_period"] = pd.to_datetime(df["original_period"], errors="coerce")
     df = df.dropna(subset=["original_period"])
     df["date"] = df["original_period"].dt.strftime("%Y")
     df["customdata"] = df.apply(
@@ -33,8 +34,8 @@ def plot_kuznets_curve(df, country):
                 "GDP per capita: %{customdata[2]}",
             ]
         ),
-        marker=dict(size=11 , symbol="circle-open-dot"),
-        selector=dict(mode="markers")
+        marker=dict(size=11, symbol="circle-open-dot"),
+        selector=dict(mode="markers"),
     )
 
     # Polynomial Regression
@@ -51,9 +52,9 @@ def plot_kuznets_curve(df, country):
         go.Scatter(
             x=x_line,
             y=y_line,
-            mode='lines',
-            name='Trend Line',
-            line=dict(color='gold', width=3)
+            mode="lines",
+            name="Trend Line",
+            line=dict(color="gold", width=3),
         )
     )
 
