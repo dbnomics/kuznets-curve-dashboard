@@ -23,6 +23,8 @@ def main():
 
     local_css("styles.css")
 
+    st.image(str(package_dir / "images/dbnomics.svg"), width=300)
+    
     st.title(":blue[Kuznets Curve]")
     st.markdown(
         """
