@@ -107,7 +107,7 @@ def main():
         st.write(
             "**What is the Palma ratio ?**\n"
             "The Palma ratio measures inequalities by dividing the share received by the 10% richest by the share of the 40% poorest.\n"
-            "A higher Palma ration indicates higher inequalities"
+            "A higher Palma ratio indicates greater inequalities"
         )
 
     if selected == "Sources":
