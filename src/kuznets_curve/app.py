@@ -8,23 +8,20 @@ from streamlit_option_menu import option_menu
 
 
 def main():
-
     package_dir = importlib.resources.files("kuznets_curve")
     st.set_page_config(
         page_title="DBnomics Kuznets Curve",
         page_icon=str(package_dir / "images/favicon.png"),
     )
 
-
     def local_css(file_name):
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-
-    local_css("styles.css")
+    local_css(str(package_dir / "styles.css"))
 
     st.image(str(package_dir / "images/dbnomics.svg"), width=300)
-    
+
     st.title(":blue[Kuznets Curve]")
     st.markdown(
         """
@@ -124,6 +121,6 @@ def main():
     if selected == "DBnomics":
         st.write("Visit DBnomics by clicking [here](https://db.nomics.world)")
 
+
 if __name__ == "__main__":
     main()
-
