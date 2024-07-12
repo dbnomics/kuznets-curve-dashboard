@@ -7,7 +7,7 @@ from PIL import Image
 from streamlit_option_menu import option_menu
 
 
-def main():
+def main() -> None:
     package_dir = importlib.resources.files("kuznets_curve")
     st.set_page_config(
         page_title="DBnomics Kuznets Curve",
@@ -45,8 +45,8 @@ def main():
     with st.sidebar:
         selected = option_menu(
             menu_title="Menu",
-            options=["Explanations", "Kuznets Curve", "Sources", "DBnomics"],
-            icons=["book", "bar-chart", "paperclip", "search"],
+            options=["Explanations", "Kuznets Curve", "Sources"],
+            icons=["book", "bar-chart", "search"],
             menu_icon=":",
             default_index=0,
         )
@@ -110,16 +110,16 @@ def main():
         )
 
     if selected == "Sources":
-        st.subheader(":blue[**DBnomics sources**]")
+        st.subheader("**Data**")
         st.write(
             "\n"
-            '**GDP per Capita**: [link](https://db.nomics.world/WB/WDI?dimensions=%7B"indicator"%3A%5B"NY.GDP.PCAP.KD"%5D%7D&tab=list).\n'
+            "- [GDP per Capita](https://db.nomics.world/WB/WDI?dimensions=%7B\"indicator\"%3A%5B\"NY.GDP.PCAP.KD\"%5D%7D&tab=list).\n"
             "\n"
-            "**Palma Ratio**: [link](https://db.nomics.world/OECD/DP_LIVE?q=palma+ratio&tab=list)"
+            "- [Palma Ratio](https://db.nomics.world/OECD/DP_LIVE?q=palma+ratio&tab=list)"
         )
-
-    if selected == "DBnomics":
-        st.write("Visit DBnomics by clicking [here](https://db.nomics.world)")
+        st.markdown("---")
+        st.write("[Source Code](https://github.com/dbnomics/kuznets-curve-dashboard)")
+        st.write("[DBnomics](https://db.nomics.world)")
 
 
 if __name__ == "__main__":
