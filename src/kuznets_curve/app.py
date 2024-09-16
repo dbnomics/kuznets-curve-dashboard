@@ -89,10 +89,9 @@ def main() -> None:
 
     if selected == "Kuznets Curve":
         # Plot for Kuznets Curve
-        st.subheader(":blue[**Charts**]")
         df_gdp, df_ine = data_download()
         merged_dfs = merge_data((df_gdp, df_ine))
-        tab1, tab2 = st.tabs([":bar_chart:", "Data :file_folder"])
+        tab1, tab2 = st.tabs([":bar_chart:", "Data :file_folder:"])
 
         with tab1:
             country = st.selectbox("Select a country", list(merged_dfs.keys()))
