@@ -1,7 +1,7 @@
 import importlib
 
 import streamlit as st
-from charts import plot_kuznets_curve
+from charts import plot_kuznets_curve, plot_kuznet_example
 from data_loader import data_download, merge_data
 from PIL import Image
 from streamlit_option_menu import option_menu
@@ -63,14 +63,8 @@ def main() -> None:
             "The U shape means that at its inception economic growth creates more inequalities.\n"
         )
 
-        kuznets_example = Image.open(package_dir / "images/kuznets_example.png")
-        st.image(
-            kuznets_example,
-            caption="Kuznets Curve in theory",
-            use_column_width=True,
-            output_format="PNG",
-            width=100,
-        )
+        fig1 = plot_kuznet_example()
+        st.plotly_chart(fig1)
 
         st.write(
             "After a certain threshold inequalities are supposed to decrease.\n"
@@ -98,18 +92,28 @@ def main() -> None:
         st.subheader(":blue[**Charts**]")
         df_gdp, df_ine = data_download()
         merged_dfs = merge_data((df_gdp, df_ine))
+        tab1, tab2 = st.tabs([":bar_chart:", "Data :file_folder"])
 
-        country = st.selectbox("Select a country", list(merged_dfs.keys()))
+        with tab1:
+            country = st.selectbox("Select a country", list(merged_dfs.keys()))
 
-        if country:
-            fig = plot_kuznets_curve(merged_dfs[country], country)
-            st.plotly_chart(fig)
+            if country:
+                fig = plot_kuznets_curve(merged_dfs[country], country)
+                st.plotly_chart(fig)
 
-        st.write(
-            "**What is the Palma ratio ?**\n"
-            "The Palma ratio measures inequalities by dividing the share received by the 10% richest by the share of the 40% poorest.\n"
-            "A higher Palma ratio indicates greater inequalities"
-        )
+            st.write(
+                "**What is the Palma ratio ?**\n"
+                "The Palma ratio measures inequalities by dividing the share received by the 10% richest by the share of the 40% poorest.\n"
+                "A higher Palma ratio indicates greater inequalities"
+            )
+        with tab2: 
+            col1, col2 = st.columns(2)
+            with col1:
+                st.subheader("Dataset GDP")
+                st.write(df_gdp)
+            with col2:
+                st.subheader("Dataset Palma Ratio")
+                st.write(df_ine)
 
     if selected == "Sources":
         st.subheader("**Data**")

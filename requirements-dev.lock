@@ -13,6 +13,8 @@ altair==5.3.0
     # via streamlit
 anyio==4.4.0
     # via httpx
+asttokens==2.4.1
+    # via stack-data
 attrs==23.2.0
     # via jsonschema
     # via referencing
@@ -33,16 +35,26 @@ charset-normalizer==3.3.2
 click==8.1.7
     # via black
     # via streamlit
+comm==0.2.2
+    # via ipykernel
 contourpy==1.2.1
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
 dbnomics==1.2.5
     # via kuznets-curve
+debugpy==1.8.5
+    # via ipykernel
+decorator==5.1.1
+    # via ipython
 entrypoints==0.4
     # via streamlit-extras
+executing==2.1.0
+    # via stack-data
 faker==26.0.0
     # via streamlit-faker
+fastjsonschema==2.20.0
+    # via nbformat
 favicon==0.7.0
     # via markdownlit
 fonttools==4.53.0
@@ -65,6 +77,12 @@ idna==3.7
     # via anyio
     # via httpx
     # via requests
+ipykernel==6.29.5
+    # via kuznets-curve
+ipython==8.27.0
+    # via ipykernel
+jedi==0.19.1
+    # via ipython
 jinja2==3.1.4
     # via altair
     # via pydeck
@@ -75,8 +93,15 @@ joblib==1.4.2
     # via scikit-learn
 jsonschema==4.22.0
     # via altair
+    # via nbformat
 jsonschema-specifications==2023.12.1
     # via jsonschema
+jupyter-client==8.6.2
+    # via ipykernel
+jupyter-core==5.7.2
+    # via ipykernel
+    # via jupyter-client
+    # via nbformat
 kiwisolver==1.4.5
     # via matplotlib
 lxml==5.2.2
@@ -93,12 +118,19 @@ markupsafe==2.1.5
 matplotlib==3.9.1
     # via seaborn
     # via streamlit-faker
+matplotlib-inline==0.1.7
+    # via ipykernel
+    # via ipython
 mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.3.0
     # via htbuilder
 mypy-extensions==1.0.0
     # via black
+nbformat==5.10.4
+    # via kuznets-curve
+nest-asyncio==1.6.0
+    # via ipykernel
 numpy==2.0.0
     # via altair
     # via contourpy
@@ -114,6 +146,7 @@ numpy==2.0.0
 packaging==24.1
     # via altair
     # via black
+    # via ipykernel
     # via matplotlib
     # via plotly
     # via streamlit
@@ -123,25 +156,41 @@ pandas==2.2.2
     # via kuznets-curve
     # via seaborn
     # via streamlit
+parso==0.8.4
+    # via jedi
 pathspec==0.12.1
     # via black
+pexpect==4.9.0
+    # via ipython
 pillow==10.4.0
     # via matplotlib
     # via streamlit
+pip==24.2
+    # via kuznets-curve
 platformdirs==4.2.2
     # via black
+    # via jupyter-core
 plotly==5.22.0
     # via kuznets-curve
 prometheus-client==0.20.0
     # via streamlit-extras
+prompt-toolkit==3.0.47
+    # via ipython
 protobuf==5.27.2
     # via streamlit
     # via streamlit-extras
+psutil==6.0.0
+    # via ipykernel
+ptyprocess==0.7.0
+    # via pexpect
+pure-eval==0.2.3
+    # via stack-data
 pyarrow==16.1.0
     # via streamlit
 pydeck==0.9.1
     # via streamlit
 pygments==2.18.0
+    # via ipython
     # via rich
 pymdown-extensions==10.8.1
     # via markdownlit
@@ -149,12 +198,16 @@ pyparsing==3.1.2
     # via matplotlib
 python-dateutil==2.9.0.post0
     # via faker
+    # via jupyter-client
     # via matplotlib
     # via pandas
 pytz==2024.1
     # via pandas
 pyyaml==6.0.1
     # via pymdown-extensions
+pyzmq==26.2.0
+    # via ipykernel
+    # via jupyter-client
 referencing==0.35.1
     # via jsonschema
     # via jsonschema-specifications
@@ -174,6 +227,7 @@ scipy==1.14.0
 seaborn==0.13.2
     # via kuznets-curve
 six==1.16.0
+    # via asttokens
     # via python-dateutil
 smmap==5.0.1
     # via gitdb
@@ -186,6 +240,8 @@ st-annotated-text==4.0.1
     # via streamlit-extras
 st-theme==1.2.3
     # via streamlit-extras
+stack-data==0.6.3
+    # via ipython
 streamlit==1.36.0
     # via kuznets-curve
     # via markdownlit
@@ -236,7 +292,17 @@ toml==0.10.2
 toolz==0.12.1
     # via altair
 tornado==6.4.1
+    # via ipykernel
+    # via jupyter-client
     # via streamlit
+traitlets==5.14.3
+    # via comm
+    # via ipykernel
+    # via ipython
+    # via jupyter-client
+    # via jupyter-core
+    # via matplotlib-inline
+    # via nbformat
 typing-extensions==4.12.2
     # via streamlit
 tzdata==2024.1
@@ -247,3 +313,5 @@ validators==0.30.0
     # via streamlit-extras
 watchdog==4.0.1
     # via streamlit
+wcwidth==0.2.13
+    # via prompt-toolkit

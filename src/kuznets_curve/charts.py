@@ -59,3 +59,21 @@ def plot_kuznets_curve(df, country):
     )
 
     return fig
+def plot_kuznet_example():
+    economic_development = np.linspace(0, 100, 100)
+    #quadratic function
+    inequality = -0.0005 * (economic_development - 50)**2 + 65
+    fig = go.Figure()
+    fig.add_trace(
+        go.Line(
+            x = economic_development,
+            y = inequality, 
+            line = dict(color = "limegreen")
+        )
+    )
+    fig.update_layout(
+    xaxis_title = "Economic Development",
+    yaxis_title = "Inequalities", 
+    title = "Example of Kuznets Curve", 
+    )
+    return fig
